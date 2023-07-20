@@ -1,0 +1,267 @@
+:root {
+  --clr-error: hsl(4, 100%, 67%);
+  --btn-hover: linear-gradient(
+    to right,
+    hsl(4, 100%, 57%) 20%,
+    hsl(39, 100%, 50%)
+  );
+
+  --clr-500: hsl(234, 29%, 20%);
+  --clr-300: hsl(235, 18%, 26%);
+  --clr-200: hsl(231, 7%, 60%);
+  --clr-100: hsl(0, 0%, 100%);
+
+  --fs: 1em;
+  --fw-regular: 400;
+  --fw-bold: 700;
+  --ff: "Roboto", sans-serif;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+a,
+dd {
+  margin: 0;
+  text-decoration: none;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  background-color: var(--clr-500);
+  font-family: var(--ff);
+  font-size: var(--fs);
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.3em;
+
+  max-height: 70vh;
+
+  background-color: var(--clr-100);
+  border-radius: 1.5em;
+  overflow: hidden;
+}
+
+.bg-image img {
+  padding: 1em;
+  max-height: 70vh;
+}
+
+.form-container .sign-up-form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.7em;
+
+  max-width: 65vh;
+
+  padding: 1em;
+}
+
+.sign-up-form .title {
+  color: var(--clr-500);
+  font-weight: var(--fw-bold);
+  font-size: 2.2em;
+}
+
+.sign-up-form .description {
+  color: var(--clr-400);
+  font-weight: var(--fw-regular);
+}
+
+.list-items li {
+  color: var(--clr-400);
+  font-weight: var(--fw-regular);
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.list-items li[data-icon="list-icon"]::before {
+  content: "";
+  width: 21px;
+  height: 21px;
+  background-image: url(assets/images/icon-list.svg);
+  position: absolute;
+  left: -10%;
+  top: 5%;
+}
+
+form {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+form label {
+  color: var(--clr-300);
+  font-weight: var(--fw-bold);
+  display: block;
+  margin-bottom: 0.3em;
+}
+
+input {
+  padding: 10px 63px 10px;
+  font-family: var(--ff);
+  border-radius: 0.4em;
+  border: 1px solid var(--clr-200);
+  outline: 0;
+  margin-bottom: 1em;
+}
+
+/* Success Message */
+
+.grid-items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5em;
+
+  background-color: var(--clr-100);
+  max-width: 23em;
+  padding: 2em;
+  border-radius: 1.5em;
+}
+
+.grid-items img {
+  width: 20%;
+}
+
+.grid-items .title {
+  font-weight: var(--fw-bold);
+  font-size: 2.2em;
+  color: var(--clr-500);
+  line-height: 1;
+}
+
+.grid-items .subscription-message {
+  color: var(--clr-300);
+}
+
+.btn {
+  width: 100%;
+  background-color: var(--clr-500);
+  font-family: var(--ff);
+  color: var(--clr-100);
+  padding: 10px 0;
+
+  border: 0;
+  border-radius: 0.4em;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.btn:hover {
+  background: var(--btn-hover);
+  box-shadow: 0 0.5em 10px 0 hsla(4, 100%, 57%, 0.5),
+    0 0.5em 10px 0 hsla(39, 100%, 50%, 0.5);
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    max-width: 359px;
+    max-height: fit-content;
+    flex-direction: column-reverse;
+
+    border-radius: 0;
+  }
+
+  .grid-items .subscription-message {
+    margin-bottom: 10rem;
+  }
+
+  .bg-image img {
+    padding: 0;
+  }
+}
+
+.error {
+  color: var(--clr-error);
+}
