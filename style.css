@@ -226,7 +226,7 @@ input {
 }
 
 .btn {
-  width: 100%;
+  width: 90%;
   background-color: var(--clr-500);
   font-family: var(--ff);
   color: var(--clr-100);
@@ -246,7 +246,7 @@ input {
 
 @media (max-width: 500px) {
   .form-container {
-    max-width: 359px;
+    max-width: 350px;
     max-height: fit-content;
     flex-direction: column-reverse;
 
